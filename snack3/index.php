@@ -53,10 +53,14 @@
         $keys = array_keys($posts);
 
         for($i = 0; $i < count($keys); $i++){
-            $date = $keys[$i];
-            $value = $posts[$date];
-            echo $date ." <br>";
-            var_dump($value) ."<br>";
+            $date = $keys[$i]; // es. '04/05/2002'
+            // $posts['04/05/2002'] = array di post di quella data
+            // $posts['04/05/2002'][0] = primo post associato a quella data
+            // 'title' per accedere alla proprietà
+            for ($j = 0; $j < count($posts[$date]); $j++) {
+                echo $posts[$date][$j]['title'] . "<br>";
+                echo $posts[$date][$j]['text'] . "<br><br>";
+            }
         }
     ?>
 
